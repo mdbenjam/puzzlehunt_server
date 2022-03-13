@@ -134,7 +134,6 @@ LOGGING = {
         'console': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
-            'filename': '/var/log/external/django.log',
             'formatter': 'verbose',
         },
     },
