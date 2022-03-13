@@ -8,11 +8,13 @@ databases:
   - name: puzzlehunt_db
     databaseName: puzzlehunt_db # optional (Render may add a suffix)
     user: puzzlehunt # optional
+    plan: free
 
 services:
   - type: web
     name: puzzlehunt
     env: docker
+    plan: free
     repo: https://github.com/mdbenjam/puzzlehunt_server
     branch: mdbenjam/deploy-to-render
     envVars:
