@@ -36,8 +36,8 @@ services:
           property: password
       - key: DB_USER
         fromDatabase:
-          name: user
-          property: password
+          name: puzzlehunt_db
+          property: user
       - key: DB_PASSWORD
         fromDatabase:
           name: puzzlehunt_db
