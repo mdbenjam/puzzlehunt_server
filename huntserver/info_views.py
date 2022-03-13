@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models.functions import Lower
 from django.shortcuts import render
 from django.contrib import messages
+from django.http import HttpResponse
 import random
 import re
 
@@ -17,6 +18,12 @@ def index(request):
     curr_hunt = Hunt.objects.get(is_current_hunt=True)
     team = curr_hunt.team_from_user(request.user)
     return render(request, "index.html", {'curr_hunt': curr_hunt, 'team': team})
+
+
+def health(request):
+    """ Health Check """
+    return HttpResponse('')
+
 
 
 def previous_hunts(request):

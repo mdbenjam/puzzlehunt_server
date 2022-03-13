@@ -29,6 +29,7 @@ urlpatterns = [
 
     # Info Flatpages
     path('info/', include('django.contrib.flatpages.urls')),
+    path('health/', info_views.health, name="health"),
 
     # Auth and Accounts
     url(r'^accounts/create/$', auth_views.create_account, name='create_account'),
