@@ -13,5 +13,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN python3 /code/manage.py collectstatic --noinput
+RUN python3 /code/manage.py loaddata initial_hunt
+
 EXPOSE 8000
 CMD ["gunicorn", "--workers=5", "--bind=0.0.0.0:8000", "puzzlehunt_server.wsgi:application"]

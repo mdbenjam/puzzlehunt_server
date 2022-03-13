@@ -1,0 +1,48 @@
+# databases:
+#   - name: puzzlehunt_redis
+#     databaseName: puzzlehunt_db # optional (Render may add a suffix)
+#     user: puzzlehunt # optional
+
+
+databases:
+  - name: puzzlehunt_db
+    databaseName: puzzlehunt_db # optional (Render may add a suffix)
+    user: puzzlehunt # optional
+
+services:
+  - type: web
+    name: puzzlehunt
+    env: docker
+    repo: https://github.com/mdbenjam/puzzlehunt_server
+    branch: mdbenjam/deploy-to-render
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: puzzlehunt_db
+          property: connectionString
+      - key: DB_NAME
+        fromDatabase:
+          name: puzzlehunt_db
+          property: database
+      - key: DB_NAME
+        fromDatabase:
+          name: puzzlehunt_db
+          property: database
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: puzzlehunt_db
+          property: password
+      - key: DB_USER
+        fromDatabase:
+          name: user
+          property: password
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: puzzlehunt_db
+          property: password
+      # - key: REDIS_HOST
+      #   fromDatabase:
+      #     name: puzzlehunt_redis
+      #     property: connectionString
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
