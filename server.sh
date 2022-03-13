@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "HELLO WORLD"
 python3 ./manage.py collectstatic --noinput
 python3 ./manage.py loaddata initial_hunt
