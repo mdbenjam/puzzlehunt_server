@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 EXPOSE 8000
-CMD ["gunicorn", "--workers=5", "--bind=0.0.0.0:8000", "puzzlehunt_server.wsgi:application"]
+CMD ["./server.sh"]
