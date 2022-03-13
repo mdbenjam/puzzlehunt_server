@@ -42,9 +42,9 @@ services:
         fromDatabase:
           name: puzzlehunt_db
           property: password
-      # - key: REDIS_HOST
-      #   fromDatabase:
-      #     name: puzzlehunt_redis
-      #     property: connectionString
+      - key: REDIS_HOST
+        fromDatabase:
+          name: puzzlehunt_redis
+          property: connectionString
       - key: DJANGO_SECRET_KEY
         generateValue: true
