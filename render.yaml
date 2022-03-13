@@ -17,7 +17,7 @@ services:
     plan: free
     repo: https://github.com/mdbenjam/puzzlehunt_server
     branch: mdbenjam/deploy-to-render
-    dockerCommand: /bin/bash -c "python3 ./manage.py collectstatic --noinput; python3 ./manage.py loaddata initial_hunt; python3 ./manage.py migrate --no-input; gunicorn --workers=5 --bind=0.0.0.0:8000 puzzlehunt_server.wsgi:application"
+    dockerCommand: /bin/bash -c "python3 ./manage.py collectstatic --noinput && python3 ./manage.py loaddata initial_hunt && python3 ./manage.py migrate --no-input && gunicorn --workers=5 --bind=0.0.0.0:8000 puzzlehunt_server.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
