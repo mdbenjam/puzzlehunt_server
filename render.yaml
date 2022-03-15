@@ -15,6 +15,7 @@ services:
     name: puzzlehunt
     env: docker
     plan: free
+    healthCheckPath: /health
     repo: https://github.com/mdbenjam/puzzlehunt_server
     branch: mdbenjam/deploy-to-render
     envVars:
