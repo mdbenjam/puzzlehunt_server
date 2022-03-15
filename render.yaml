@@ -44,3 +44,17 @@ services:
           property: password
       - key: DJANGO_SECRET_KEY
         generateValue: true
+  - type: pserv
+    name: huey
+    env: docker
+    plan: free
+    repo: https://github.com/mdbenjam/puzzlehunt_server
+    branch: mdbenjam/deploy-to-render
+    dockerCommand: bin/bash -c "./huey.sh"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: puzzlehunt_db
+          property: connectionString
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
