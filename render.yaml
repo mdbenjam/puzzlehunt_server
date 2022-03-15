@@ -45,7 +45,7 @@ services:
           property: password
       - key: DJANGO_SECRET_KEY
         generateValue: true
-  - type: pserv
+  - type: web
     name: huey
     env: docker
     plan: free
